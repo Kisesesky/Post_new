@@ -1,0 +1,25 @@
+extends layout
+include comments
+
+
+block content
+    link(rel="stylesheet", href="style.css")
+    a(href="/users/signup")
+        button Join 
+    a(href="/posts/create")
+        button Write
+    ul
+        each post in posts
+            li
+                    a(href=`/posts/${post._id}`) #{post.title}
+                    p content: #{post.content}
+                    p user : #{post.username}
+                    p creatday : #{post.createdAt}
+    
+    div#pagination
+        if page > 1
+            a(href=`/posts?page=${page-1}&size=${size}`)
+                button pre
+        div #{page}
+        a(href=`/posts?page=${page+1}&size=${size}`) 
+                button next

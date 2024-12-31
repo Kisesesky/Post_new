@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Join
+  form(action="/api/v1/users/signup", method="post")
+    label(for="username") Username
+    input(type="text", id="username", name="username", placeholder="Enter your username")
+
+    label(for="email") Email
+    input(type="email", id="email", name="email", placeholder="Enter your email")
+
+    label(for="birth") Birthdate
+    input(type="date", id="birth", name="birth", placeholder="Select your birthdate")
+
+    label(for="password") Password
+    input(type="password", id="password", name="password", placeholder="Enter your password")
+
+    label(for="passwordconfirm") Confirm Password
+    input(type="password", id="passwordconfirm", name="passwordConfirm", placeholder="Confirm your password")
+
+
+    button(type="submit") Submit

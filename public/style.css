@@ -1,0 +1,22 @@
+ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li{
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+li p{
+    font-size: 8px;
+    text-align: right;
+}
+
+#pagination{
+    display: flex;
+}
