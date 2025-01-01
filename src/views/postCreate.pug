@@ -2,12 +2,15 @@ extends layout
 
 block content 
     h1 write 
-    form(action="/api/v1/posts", method="post") 
+    form(action="/api/v1/posts", method="post", id="writeForm") 
         label(for="title") title
         input(type="text", id="title", name="title", placeholder="제목을 입력하세요...") 
+        br
         label(for="userId") author
         input(type="text", id="userId", name="userId", value=user._id)
+        br
         label(for="content") content
         textarea(type="text", id="content", name="content", placeholder="......") 
+        br
         button(type="submit") submit
 

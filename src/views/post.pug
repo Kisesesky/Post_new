@@ -13,12 +13,13 @@ block content
         p wright: #{comment.createdAt}
     hr
     h3 comment write 
-    form(action=`../api/v1/posts/${post._id}/comments`, method="post") 
+    form(action=`../api/v1/posts/${post._id}/comments`, method="post",id="postForm") 
         label(for="user") autror
         input(type="text", id="user", name="userId", value=post._id)
         br
         label(for="content") content 
         textarea(type="text", id="content",name="content", placeholder="empty conetent") 
+        br
         button(type="submit") click
 
 
