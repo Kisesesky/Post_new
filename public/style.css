@@ -10,7 +10,8 @@ li{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
+    width: 400px;
+    text-align: center;
 }
 li p{
     font-size: 8px;
@@ -24,4 +25,14 @@ li p{
 }
 #pagination{
     display: flex;
+}
+#pagination button {
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#pagination button:hover {
+    background-color: #0056b3;
 }

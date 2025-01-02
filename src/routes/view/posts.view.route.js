@@ -7,6 +7,7 @@ import User from '../../models/users.js'
 const router = express.Router()
 
 router.get("/", async (req,res)=>{
+    const user = req.user
     const page = +req.query.page || 1
     const size = +req.query.size || 5
     const posts = await Post.find()
@@ -14,11 +15,12 @@ router.get("/", async (req,res)=>{
         .sort({createdAt: -1})
         .skip(size*(page-1))
         .limit(size)
-    res.render("posts", {posts, size, page})
+    res.render("posts", {posts, size, page, user})
 })
 
 router.get("/create", async(req,res)=>{
-    const user = await User.findOne()
+    // const user = await User.findOne()
+    const user = req.user
     res.render('postCreate',{user})
 })
 

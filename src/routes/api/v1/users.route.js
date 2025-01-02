@@ -1,6 +1,7 @@
 import express from 'express'
 import User from '../../../models/users.js'
 import bcrypt from "bcrypt"
+import passport from 'passport';
 
 const router = express.Router()
 
@@ -56,14 +57,25 @@ router.post('/signin', async (req,res)=>{
         }
 
        const compareResult = await bcrypt.compare(password, user.password)
-       if(compareResult)
-            res.status(200).json(user)
-       res.status(400).json({mesaage: 'Invalid Password'})
+    //    if(compareResult)
+    //         res.status(200).json(user)
+    //    res.status(400).json({mesaage: 'Invalid Password'})
+       if(!compareResult)
+            res.status(400).json({mesaage: 'Invalid Password'})
+       res.cookie('loggedInUser', encodeURIComponent(JSON.stringify(user)),{
+        expires: new Date(Date.now() + 90000),
+        httpOnly: true
+       })
+       res.status(200).json({message: 'login sucess'})
 
 
     }catch(e){
         res.status(500).json({message: e.message})
     }
 })
+router.post('/login',passport.authenticate("local",{
+    successReturnToOrRedirect: "/posts",
+    failureMessage: true
+}))
 
 export default router

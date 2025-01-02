@@ -11,10 +11,13 @@ const router = express.Router()
 
 router.post("/", async(req,res)=>{
     try{
-        const {title, content, userId} =req.body
-        const user = await User.findById(userId)
-        if(!user)
-            return res.status(400).json({mesaage: 'User does not exist'})
+        // const {title, content, userId} =req.body
+        const {title, content} =req.body
+        const user = req.user
+        
+        // const user = await User.findById(userId)
+        // if(!user)
+        //     return res.status(400).json({mesaage: 'User does not exist'})
         const createdPost = await Post.create({
             title,
             content,
@@ -46,7 +49,7 @@ router.get("/postId", async (req,res)=>{
 
 router.put("/:postId", async (req,res)=>{
     const {title,content} = req.body
-    const updatedPost = await Post.findByAndUpdate(req.params.postId,{
+    const updatedPost = await Post.findByIdAndUpdate(req.params.postId,{
         title,content
     },{
         returnDocument : "after"

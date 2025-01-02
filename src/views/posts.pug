@@ -8,12 +8,18 @@ block content
         button Join 
     a(href="/posts/create")
         button Write
+    if user
+        a(href="/users/logout")
+            button LogOut
+    else 
+         a(href="/users/login")
+            button LogIn
+
     ul
         each post in posts
             li
                     a(href=`/posts/${post._id}`) #{post.title}
-                    p content: #{post.content}
-                    p user : #{post.username}
+                    p user : #{post.author.username}
                     p creatday : #{post.createdAt}
     
     div#pagination

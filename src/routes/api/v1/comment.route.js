@@ -6,11 +6,11 @@ import Post from '../../../models/posts.js'
 const router = express.Router({mergeParams: true});
 
 router.post('/', async (req, res)=>{
-    const {content ,userId} = req.body
-    console.log(req.body, req.params)
+    const {content } = req.body
+    const postId = req.params.postId
     try{
-        const user = await User.findById(userId)
-        const post = await Post.findById(req.params.postId)
+        const user = req.userId
+        const post = await Post.findById(postId)
 
         const commentCreated = await Comment.create({
             content,
@@ -27,7 +27,6 @@ router.post('/', async (req, res)=>{
     }
     catch(e){
         res.status(500).json({message: e.message})
-        // res.redirect('back');
     }
 
 })
@@ -76,6 +75,7 @@ router.delete('/:commentId', async(req, res)=> {
     res.status(204).json()
 
 })
+
 
 
 export default router

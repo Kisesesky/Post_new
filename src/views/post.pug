@@ -2,20 +2,20 @@ extends layout
 
 block content
     h1 #{post.title}
-    p create: #{post.username}
+    p create: #{post.author.username}
     p #{post.createdAt}
     p #{post.content}
     hr
     h2 comment #{post.comments.length}
     each comment in post.comments
         p #{comment.content}
-        p user: #{comment.username}
+        p user: #{comment.author.username}
         p wright: #{comment.createdAt}
     hr
     h3 comment write 
-    form(action=`../api/v1/posts/${post._id}/comments`, method="post",id="postForm") 
+    form(action=`/api/v1/posts/${post._id}/comments`, method="post",id="postForm") 
         label(for="user") autror
-        input(type="text", id="user", name="userId", value=post._id)
+        input(type="text", id="user", name="username", value=post._id)
         br
         label(for="content") content 
         textarea(type="text", id="content",name="content", placeholder="empty conetent") 
