@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    link(rel="stylesheet", href="/css/style.css")
+
+    h1 CommentsModify
+    form#commentedit(action=`/api/v1/comments/${post._id}/edit`, method="post")
+        div writer: #{post.author._id}
+        label(for="content") content
+        textarea#write-text(type="text", rows="30", cols="40", name="content", placeholder="......")
+        hr
+        button(type="submit") edit

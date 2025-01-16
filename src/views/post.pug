@@ -1,25 +1,43 @@
 extends layout
 
 block content
-    h1 #{post.title}
-    p create: #{post.author.username}
-    p #{post.createdAt}
-    p #{post.content}
-    hr
-    h2 comment #{post.comments.length}
-    each comment in post.comments
-        p #{comment.content}
-        p user: #{comment.author.username}
-        p wright: #{comment.createdAt}
-    hr
+    link(rel="stylesheet", href="/css/style.css")
+
+    div#post-section
+        h1 #{post.title}
+        if isSameUser
+            span 
+                a(href=`/posts/${post._id}/edit`)
+                    button Modify 
+                a(href=`/api/v1/posts/${post._id}/delete`)
+                    button Delete
+                a(href='/posts')
+                    button Home
+
+        div#writerInfo
+            p create: #{post.author.username}
+            p #{post.createdAt}
+        p#writerp #{post.content}
+        hr
+    div#comment-section    
+            each comment in post.comments
+                li.comment-list
+                    p #{comment.content}
+                    div#commentdiv
+                        p user: #{post.author.username}
+                        p wright: #{post.createdAt}
+                    if isSameUser
+                        span 
+                            a(href=`/comments/${comment._id}/edit`)
+                                button Modify 
+                            a(href=`/api/v1/comments/${comment._id}/delete`)
+                                button Delete   
     h3 comment write 
-    form(action=`/api/v1/posts/${post._id}/comments`, method="post",id="postForm") 
+    form#comment-form(action=`/api/v1/posts/${post._id}/comments`, method="post") 
         label(for="user") autror
-        input(type="text", id="user", name="username", value=post._id)
-        br
+        input#comment-input(type="text", name="username", value=post._id)
         label(for="content") content 
-        textarea(type="text", id="content",name="content", placeholder="empty conetent") 
-        br
-        button(type="submit") click
+        textarea#textline(type="text",name="content", rows="30", cols="40",placeholder="empty conetent") 
+        button(type="submit") submit
 
 

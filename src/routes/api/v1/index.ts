@@ -1,5 +1,5 @@
 import express from "express";
-import commentRouter from "./comment.route.js";
+import commentRouter from "./comments.route.js";
 import postRouter from "./posts.route.js";
 import userRouter from "./users.route.js";
 
@@ -10,3 +10,5 @@ router.use('/posts', postRouter);
 router.use('/users', userRouter);
 
 export default router;
+
+document.getElementById

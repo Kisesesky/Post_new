@@ -4,13 +4,31 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/style.css")
+
+
         title Document
-    body
+    body#loginbody
         h1 Login 
 
-        form(action="/api/v1/users/login",method="post")
+        form#login-form(action="/api/v1/users/login",method="post")
             label(for="email") Email 
             input(type="text", name="email", placeholder="Enter your email")
+            hr
             label(for="password") Password 
             input(type="password", name="password", placeholder="Enter your password")
+            hr
             button(type="submit") Login
+            div 
+            a(href="/users/signup")
+                button(type="button") Join 
+
+        div#loginbtn
+            a(href="/api/v1/users/login/google")
+                button(type="submit") google Login
+            a(href="/api/v1/users/login/naver")
+                button(type="/") naver Login
+            a(href="/api/v1/users/login/facebook")
+                button(type="/") facebook Login
+            a(href="/api/v1/users/login/apple")
+                button(type="/") apple Login  

@@ -1,22 +1,23 @@
 extends layout
 
 block content
+  link(rel="stylesheet", href="/css/style.css")
   h1 Join
-  form(action="/api/v1/users/signup", method="post")
-    #label(for="username") Username
+  form#join-form(action="/api/v1/users/signup", method="post")
+    label(for="username") Username
     input(type="text", id="username", name="username", placeholder="Enter your username")
-    br
-    #label(for="email") Email
+    hr
+    label(for="email") Email
     input(type="email", id="email", name="email", placeholder="Enter your email")
-    br
-    #label(for="birth") Birthdate
+    hr
+    label(for="birth") Birthdate
     input(type="date", id="birth", name="birth", placeholder="Select your birthdate")
-    br
-    #label(for="password") Password
+    hr
+    label(for="password") Password
     input(type="password", id="password", name="password", placeholder="Enter your password")
-    br
-    #label(for="passwordconfirm") Confirm Password
+    hr
+    label(for="passwordconfirm") Confirm Password
     input(type="password", id="passwordconfirm", name="passwordConfirm", placeholder="Confirm your password")
-    br
+    hr
 
     button(type="submit") Submit

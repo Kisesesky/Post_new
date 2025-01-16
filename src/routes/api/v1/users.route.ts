@@ -2,6 +2,8 @@ import express from 'express'
 import User from '../../../models/users.js'
 import bcrypt from "bcrypt"
 import passport from 'passport';
+import jwt from 'jsonwebtoken'
+import { IUser } from './../../../models/users';
 
 const router = express.Router()
 
@@ -27,7 +29,7 @@ const signUpValidator = async (req,res,next) => {
     next()
 }
 
-router.post("/signup", signUpValidator, async (req,res)=>{
+router.post("/signup", async (req,res)=>{
     try{
         const{username, email, password, passwordConfirm, birth} =req.body
 
@@ -74,8 +76,35 @@ router.post('/signin', async (req,res)=>{
     }
 })
 router.post('/login',passport.authenticate("local",{
-    successReturnToOrRedirect: "/posts",
-    failureMessage: true
-}))
+    // successReturnToOrRedirect: "/posts",
+    failureMessage: true,
+    session : false
+}), (req,res)=>{
+    let token = null
+    if(req.user){
+        const _id = req.user._id
+        const payload = {_id};
+        token = jwt.sign(payload, process.env.JWT_SECRET_KEY || '')
+    }
+    res.cookie("token", token)
+    res.redirect('/posts')
+}
+)
+
+router.get('/login/google', passport.authenticate("google", {scope: ["profile", "email"]}))
+
+router.get('/login/google/callback',
+    passport.authenticate("google",{failureRedirect: '/posts', session: false})
+    ,(req, res) => {
+        let token = null
+        if(req.user){
+            const _id = req.user._id
+            const payload = {_id};
+            token = jwt.sign(payload, process.env.JWT_SECRET_KEY || '')
+        }
+        res.cookie("token", token)
+        res.redirect('/posts')
+    }
+    )
 
 export default router

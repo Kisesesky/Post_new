@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    link(rel="stylesheet", href="/css/style.css")
+
+    h1 writeModify 
+    form(action=`/api/v1/posts/${post._id}/edit`, method="post") 
+        label(for="title") title
+        input(type="text", name="title", placeholder="........") 
+        hr
+        div writer: #{post.author._id}
+        label(for="content") content
+        textarea#write-text(type="text",rows="30", cols="40", name="content", placeholder="......") 
+        hr
+        button(type="submit") edit

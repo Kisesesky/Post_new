@@ -1,0 +1,283 @@
+ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li{
+    
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+#writerInfo{
+    font-size: 10px;
+    height: 50px;
+    width: 900px;
+    border: 1px solid;
+    
+
+}
+#writerp{
+    height: 200px;
+    width: 900px;
+    border: 1px solid;
+}
+
+#pagination{
+    display: flex;
+}
+#pagination div{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    align-content: center;
+}
+#pagination button {
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+}
+#pagination button:hover {
+    background-color: #0056b3;
+}
+#buttonsession{
+    display: flex;
+    flex-direction: row;
+}
+#buttonsession button {
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+#buttonsession button:hover {
+    background-color: #0056b3;
+}
+
+.post-list{
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+#post-form{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+#post-form button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+.comment-list{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    width: 700px;
+}
+#post-section{
+    display: flex;
+    flex-direction: column;
+}
+#post-section div{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: end;
+}
+#comment-section {
+    margin-top: 150px;
+    
+}
+#join-form{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+#join-form button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+#join-form button:hover{
+    background-color: #0056b3;
+}
+#post-form button:hover{
+    background-color: #0056b3;
+}
+#login-form{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+#loginbody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#login-form button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    background-color: dimgray;
+    font : solid;
+    
+}
+#login-form button:hover{
+    background-color: #0056b3;
+}
+#comment-form{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    display: flex;
+    height: 200px;
+    width: 60%;
+    flex-direction: column;
+}
+#comment-form button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+    
+}
+#post-section button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+#post-section button:hover{
+    background-color: #0056b3;
+
+}
+#comment-form button:hover{
+    background-color: #0056b3;
+}
+#textline{
+    height: 200px;
+}
+#comment-input{
+    width: 50%;
+    background-color: none;
+    border: none;
+}
+#write-text{
+    height: 200px;
+    
+}
+#commentedit button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+#commentedit button:hover{
+    background-color: #0056b3;
+
+}
+#commentedit{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5%;
+    display: flex;
+    height: 200px;
+    width: 60%;
+    flex-direction: column;
+}
+#commentdiv{
+    text-align: right;
+}
+.comment-list button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 65px;
+    height: 40px;
+    background-color: dimgray;
+    font : solid;
+}
+.comment-list button:hover{
+    background-color: #0056b3;
+
+}
+#loginbtn button{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    background-color: none;
+    font : solid;
+}
+#loginbtn{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 300px;
+
+}

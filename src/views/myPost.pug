@@ -5,20 +5,13 @@ include comments
 block content
     link(rel="stylesheet", href="/css/style.css")
     div#buttonsession
-        if user 
             a(href="/posts/create")
                 button Write
-        else       
-            a(href="/users/signup")
-                button Join 
-        if user
             a(href="/users/logout")
                 button LogOut
-            a(href=`users/${user._id}/posts`)
-                button My Post    
-        else 
-            a(href="/users/login")
-                button LogIn
+            a(href='/posts')
+                button Home
+            
 
     ul
         each post in posts
@@ -28,10 +21,10 @@ block content
                         p User : #{post.author.username}
                         p Creatday : #{post.createdAt}
     
-    div#pagination
-        if page > 1
-            a(href=`/posts?page=${page-1}&size=${size}`)
-                button Pre
-        div #{page}
-        a(href=`/posts?page=${page+1}&size=${size}`) 
-                button Next
+    //- div#pagination
+    //-     if page > 1
+    //-         a(href=`/posts?page=${page-1}&size=${size}`)
+    //-             button Pre
+    //-     div #{page}
+    //-     a(href=`/posts?page=${page+1}&size=${size}`) 
+    //-             button Next
